@@ -2,13 +2,13 @@ import QtQuick 2.6
 import QtQuick.Controls 2.4
 
 Item {
-    width: 1920
-    height: 1200-104
+    width: 1920 / 1.5
+    height: 1096 /1.5
     //Header
     AppHeader{
         id: headerItem
         width: parent.width
-        height: 141
+        height: 141/1.5
         playlistButtonStatus: playlist.opened ? 1 : 0
         onClickPlaylistButton: {
             if (!playlist.opened) {
@@ -22,8 +22,8 @@ Item {
     //Playlist
     PlaylistView{
         id: playlist
-        y: 141 + 104
-        width: 675
+        y: (141 + 104)/1.5
+        width: 675 /1.5
         height: parent.height-headerItem.height
     }
 

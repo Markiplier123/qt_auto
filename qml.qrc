@@ -38,7 +38,7 @@
         <file>Qml/HomeWidget.qml</file>
         <file>Qml/AppButton.qml</file>
         <file>Qml/ClimateWidget.qml</file>
-        <file>Qml/MeidaWidget.qml</file>
+        <file>Qml/MediaWidget.qml</file>
         <file>Qml/MapWidget.qml</file>
         <file>Img/Map/desktop.ini</file>
         <file>Img/Map/car_icon.png</file>

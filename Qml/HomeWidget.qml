@@ -91,12 +91,12 @@ Item {
                     ]
                 }
 
-                      Rectangle {
-                height : parent.height
-                color : "blue"
-                width :635 /1.5
-                opacity: .2
-                }
+//                      Rectangle {
+//                height : parent.height
+//                color : "blue"
+//                width :635 /1.5
+//                opacity: .2
+//                }
             }
         }
 
@@ -111,11 +111,12 @@ Item {
             ClimateWidget {
             }
         }
-        /*Component {
+        Component {
             id: mediaWidget
             MediaWidget{
                 onClicked: openApplication("qrc:/App/Media/Media.qml")
-            }*/
+            }
+        }
     }
 
 
@@ -124,7 +125,7 @@ Item {
     ListView {
         id:listViewId
         x: 0
-        y:570 / 1.5
+        y:/*570 / 1.5*/ 390
         width: 1280; height: 604 /1.5
         orientation: ListView.Horizontal
         interactive: false
@@ -174,11 +175,12 @@ Item {
 
                 property int visualIndex: DelegateModel.itemsIndex
                 Binding { target: icon; property: "visualIndex"; value: visualIndex }
-                Rectangle {
-                    anchors.fill: parent
-                    color : "red"
-                    opacity: .5
-                }
+//                Rectangle {
+//                    anchors.fill: parent
+//                    color : "red"
+//                    opacity: .5
+//                }
+
                 Item {
                     id: icon
                     property int visualIndex: 0
@@ -252,4 +254,5 @@ Item {
         }
 
     }
+
 }

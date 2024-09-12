@@ -6,12 +6,12 @@ Item {
     Text {
         id: audioTitle
         anchors.top: parent.top
-        anchors.topMargin: 20
+        anchors.topMargin: 20/1.5
         anchors.left: parent.left
-        anchors.leftMargin: 20
+        anchors.leftMargin: 20/1.5
         text: album_art_view.currentItem.myData.title
         color: "white"
-        font.pixelSize: 36
+        font.pixelSize: 36/1.5
         onTextChanged: {
             textChangeAni.targets = [audioTitle,audioSinger]
             textChangeAni.restart()
@@ -23,7 +23,7 @@ Item {
         anchors.left: audioTitle.left
         text: album_art_view.currentItem.myData.singer
         color: "white"
-        font.pixelSize: 32
+        font.pixelSize: 32/1.5
     }
 
     NumberAnimation {
@@ -37,18 +37,18 @@ Item {
     Text {
         id: audioCount
         anchors.top: parent.top
-        anchors.topMargin: 20
+        anchors.topMargin: 20/1.5
         anchors.right: parent.right
-        anchors.rightMargin: 20
+        anchors.rightMargin: 20/1.5
         text: album_art_view.count
         color: "white"
-        font.pixelSize: 36
+        font.pixelSize: 36/1.5
     }
     Image {
         anchors.top: parent.top
-        anchors.topMargin: 23
+        anchors.topMargin: 23/1.5
         anchors.right: audioCount.left
-        anchors.rightMargin: 10
+        anchors.rightMargin: 10/1.5
         source: "qrc:/App/Media/Image/music.png"
     }
 
@@ -56,13 +56,13 @@ Item {
         id: appDelegate
         Item {
             property variant myData: model
-            width: 400; height: 400
+            width: 400/1.5; height: 400/1.5
             scale: PathView.iconScale
             Image {
                 id: myIcon
                 width: parent.width
                 height: parent.height
-                y: 20
+                y: 20/1.5
                 anchors.horizontalCenter: parent.horizontalCenter
                 source: album_art
             }
@@ -77,9 +77,9 @@ Item {
     PathView {
         id: album_art_view
         anchors.left: parent.left
-        anchors.leftMargin: (parent.width - 1100)/2
+        anchors.leftMargin: (parent.width - 1100)/(2*1.5)
         anchors.top: parent.top
-        anchors.topMargin: 300
+        anchors.topMargin: 300/1.5
         preferredHighlightBegin: 0.5
         preferredHighlightEnd: 0.5
         focus: true
@@ -87,12 +87,12 @@ Item {
         delegate: appDelegate
         pathItemCount: 3
         path: Path {
-            startX: 10
-            startY: 50
+            startX: 10/1.5
+            startY: 50/1.5
             PathAttribute { name: "iconScale"; value: 0.5 }
-            PathLine { x: 550; y: 50 }
+            PathLine { x: 550/1.5; y: 50/1.5 }
             PathAttribute { name: "iconScale"; value: 1.0 }
-            PathLine { x: 1100; y: 50 }
+            PathLine { x: 1100/1.5; y: 50/1.5 }
             PathAttribute { name: "iconScale"; value: 0.5 }
         }
         currentIndex: player.playlist.currentIndex
@@ -106,18 +106,18 @@ Item {
     Text {
         id: currentTime
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: 250
+        anchors.bottomMargin: 250/1.5
         anchors.right: progressBar.left
-        anchors.rightMargin: 20
+        anchors.rightMargin: 20/1.5
         text: utility.getTimeInfo(player.position)
         color: "white"
-        font.pixelSize: 24
+        font.pixelSize: 24/1.5
     }
     Slider{
         id: progressBar
-        width: 1491 - 675*playlist.position
+        width: (1491 - 675*playlist.position)/1.5
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: 245
+        anchors.bottomMargin: 245/1.5
         anchors.horizontalCenter: parent.horizontalCenter
         from: 0
         to: player.duration
@@ -125,8 +125,8 @@ Item {
         background: Rectangle {
             x: progressBar.leftPadding
             y: progressBar.topPadding + progressBar.availableHeight / 2 - height / 2
-            implicitWidth: 200
-            implicitHeight: 4
+            implicitWidth: 200/1.5
+            implicitHeight: 4/1.5
             width: progressBar.availableWidth
             height: implicitHeight
             radius: 2
@@ -158,18 +158,18 @@ Item {
     Text {
         id: totalTime
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: 250
+        anchors.bottomMargin: 250/1.5
         anchors.left: progressBar.right
-        anchors.leftMargin: 20
+        anchors.leftMargin: 20/1.5
         text: utility.getTimeInfo(player.duration)
         color: "white"
-        font.pixelSize: 24
+        font.pixelSize: 24/1.5
     }
     //Media control
     SwitchButton {
         id: shuffer
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: 120
+        anchors.bottomMargin: 120/1.5
         anchors.left: currentTime.left
         icon_off: "qrc:/App/Media/Image/shuffle.png"
         icon_on: "qrc:/App/Media/Image/shuffle-1.png"
@@ -186,7 +186,7 @@ Item {
     ButtonControl {
         id: prev
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: 120
+        anchors.bottomMargin: 120/1.5
         anchors.right: play.left
         icon_default: "qrc:/App/Media/Image/prev.png"
         icon_pressed: "qrc:/App/Media/Image/hold-prev.png"
@@ -219,7 +219,7 @@ Item {
     ButtonControl {
         id: next
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: 120
+        anchors.bottomMargin: 120/1.5
         anchors.left: play.right
         icon_default: "qrc:/App/Media/Image/next.png"
         icon_pressed: "qrc:/App/Media/Image/hold-next.png"
@@ -231,7 +231,7 @@ Item {
     SwitchButton {
         id: repeater
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: 120
+        anchors.bottomMargin: 120/1.5
         anchors.right: totalTime.right
         icon_on: "qrc:/App/Media/Image/repeat1_hold.png"
         icon_off: "qrc:/App/Media/Image/repeat.png"
